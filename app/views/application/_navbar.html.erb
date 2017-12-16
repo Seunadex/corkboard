@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+   <%= link_to 'Corkboard', root_path, class: 'navbar-brand' %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-navbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="collapsable-navbar">
+    <ul class="navbar-nav ml-auto">
+      <% if current_user # If user logged in %>
+      <li class="navbar-item">
+        <%= link_to 'Sign Out', destroy_user_session_path, method: 'delete', class: 'nav-link' %>
+      <% else # User is not logged in %>
+      <li class="nav-item">
+        <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
