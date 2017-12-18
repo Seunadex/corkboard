@@ -1,3 +1,29 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 90px;
+}
+
 .content {
   margin-top: 5em;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 60%;
+  height: 70px;
+  text-align: center;
+  border-top: .125em solid $gray-300;
+  font-size: .75em;
+  padding-top: .75em;
+  margin: 0 20% 0 20%;
+}
+
+.footer p {
+  margin-bottom: .125em;
+  color: $gray-700;
 }
