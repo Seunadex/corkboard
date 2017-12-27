@@ -2,27 +2,18 @@
 
 <h1>Listing Pins</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pins.each do |pin| %>
-      <tr>
-        <td><%= image_tag pin.thumbnail.url  if pin.thumbnail.exists? %></td>
-        <td><%= pin.description %></td>
-        <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <% @pins.each do |pin| %>
+  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+    <%= link_to pin do %>
+      <div class="card">
+        <%= image_tag pin.thumbnail.url, class: 'card-img-top' if pin.thumbnail.exists? %>
+        <div class="card-body">
+          <%= pin.description %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <% end %>
+</div>
 
-<br>
-
-<%= link_to 'New Pin', new_pin_path %>

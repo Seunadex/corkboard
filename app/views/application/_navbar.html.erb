@@ -16,6 +16,8 @@
 
     <ul class="navbar-nav ml-auto">
       <% if current_user # If user logged in %>
+      <li class="nav-item">
+        <%= link_to 'New Pin', new_pin_path, class: 'nav-link' %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
           <%= current_user.email %>
