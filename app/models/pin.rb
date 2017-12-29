@@ -6,7 +6,7 @@ class Pin < ApplicationRecord
 
   has_attached_file :thumbnail
 
-  validates_presence_of :description
+  validates_presence_of :description, :name, :url
   validates_attachment_content_type :thumbnail, content_type: content_types
 
   belongs_to :user

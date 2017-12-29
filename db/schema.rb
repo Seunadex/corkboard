@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171221034111) do
+ActiveRecord::Schema.define(version: 20171229003325) do
 
   create_table "pins", force: :cascade do |t|
     t.string "description"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20171221034111) do
     t.string "thumbnail_content_type"
     t.integer "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.string "name"
+    t.string "url"
     t.index ["user_id"], name: "index_pins_on_user_id"
   end
 

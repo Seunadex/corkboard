@@ -2,8 +2,9 @@
 
 <%= image_tag @pin.thumbnail.url %>
 
+<%= link_to @pin.name, @pin.url %>
+
 <p>
-  <strong>Description:</strong>
   <%= @pin.description %>
 </p>
 

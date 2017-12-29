@@ -12,12 +12,20 @@
   <% end %>
 
   <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url %>
+    <%= f.text_field :url, class: 'form-control', requird: true %>
+  </div>
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_field :description, class: 'form-control' %>
+    <%= f.text_field :description, class: 'form-control', required: true %>
 	</div>
   <div class="form-group">
     <%= f.label :thumbnail %><br>
-    <%= f.file_field :thumbnail, class: 'form-control' %>
+    <%= f.file_field :thumbnail, class: 'form-control', required: true %>
   </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>

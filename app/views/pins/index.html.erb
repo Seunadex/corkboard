@@ -1,6 +1,6 @@
 <% @title = 'Pins - Corkboard' %>
 
-<h1>Listing Pins</h1>
+<h1>Pins</h1>
 
 <div class="row">
   <% @pins.each do |pin| %>
@@ -8,8 +8,8 @@
     <%= link_to pin do %>
       <div class="card">
         <%= image_tag pin.thumbnail.url, class: 'card-img-top' if pin.thumbnail.exists? %>
-        <div class="card-body">
-          <%= pin.description %>
+        <div class="card-header">
+          <%= pin.name %>
         </div>
       </div>
     <% end %>
