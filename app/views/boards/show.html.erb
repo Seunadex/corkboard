@@ -1,0 +1,18 @@
+<% @title = 'Show Board - Corkboard' %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @board.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @board.description %>
+</p>
+
+<% if @board.user == current_user %>
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Delete', @board, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

@@ -8,4 +8,5 @@ class User < ApplicationRecord
          :trackable, :validatable, :confirmable, :lockable
 
   has_many :pins
+  has_many :boards
 end

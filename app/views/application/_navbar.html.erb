@@ -12,12 +12,19 @@
       <li class="nav-item">
         <%= link_to 'Pins', pins_path, class: 'nav-link' %>
       </li>
+      <li class="nav-item">
+        <%= link_to 'Boards', boards_path, class: 'nav-link' %>
+      </li>
     </ul>
 
     <ul class="navbar-nav ml-auto">
       <% if current_user # If user logged in %>
       <li class="nav-item">
         <%= link_to 'New Pin', new_pin_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'New Board', new_board_path, class: 'nav-link' %>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
           <%= current_user.email %>
