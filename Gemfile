@@ -10,6 +10,7 @@ end
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
+gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'paperclip', '~> 5.0.0'

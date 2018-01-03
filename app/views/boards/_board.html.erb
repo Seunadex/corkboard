@@ -1,0 +1,10 @@
+<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+  <%= link_to board do %>
+    <div class="card">
+      <% # image_tag board.pins.sample.thumbnail.url class: 'card-img-top' %>
+      <div class="card-header">
+        <%= board.name %>
+      </div>
+    </div>
+  <% end %>
+</div>

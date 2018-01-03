@@ -1,4 +1,29 @@
 <% @title = 'Corkboard' %>
 
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="home-pins">
+  <h3>
+    <%= link_to pins_path do %>
+      Pins <%= fa_icon 'angle-right' %>
+    <% end %>
+  </h3>
+  <hr/>
+  <div class="row">
+    <% @data[:pins].each do |pin| %>
+    <%= render 'pins/pin', pin: pin %>
+    <% end %>
+  </div>
+</div>
+
+<div class="home-boards">
+  <h3>
+    <%= link_to boards_path do %>
+      Boards <%= fa_icon 'angle-right' %>
+    <% end %>
+  </h3>
+  <hr/>
+  <div class="row">
+    <% @data[:boards].each do |board| %>
+    <%= render 'boards/board', board: board %>
+    <% end %>
+  </div>
+</div>
