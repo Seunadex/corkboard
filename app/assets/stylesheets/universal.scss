@@ -28,5 +28,13 @@ body {
   color: $gray-700;
 }
 
+.space-bottom {
+  margin-bottom: 2em;
+}
+
+.space-top {
+  margin-top: 2em;
+}
+
 @import "home";
 @import "pins";
