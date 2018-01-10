@@ -1,14 +1,28 @@
-<% @title = 'Show Pin - Corkboard' %> 
+<% @title = 'Show Pin - Corkboard' %>
 
-<%= image_tag @pin.thumbnail.url %>
-
-<%= link_to @pin.name, @pin.url %>
-
-<p>
-  <%= @pin.description %>
-</p>
-
-<% if @pin.user == current_user %>
-<%= link_to 'Edit', edit_pin_path(@pin) %> |
-<%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+<div class="col-md-6 offset-md-3 col-12">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="text-center"><%= link_to @pin.name, @pin.url, class: 'text-primary-dark' %></h3>
+    </div>
+    <div class="card-body bg-light pb-1">
+      <p class="card-text">
+        <%= @pin.description %>
+      </p>
+      <%= image_tag @pin.thumbnail.url, class: 'mx-auto img-fluid block' %> 
+      <small class="small float-left text-secondary mt-3">
+        Created by on <%= @pin.created_at %>
+      </small>
+    </div>
+    <% if @pin.user == current_user %>
+    <div class="card-footer">
+      <%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger float-right ml-1' do %>
+        <%= fa_icon 'trash-o' %> Delete
+      <% end %>
+      <%= link_to  edit_pin_path(@pin), class: 'btn btn-primary float-right mr-1' do %>
+        <%= fa_icon 'edit' %> Edit
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
