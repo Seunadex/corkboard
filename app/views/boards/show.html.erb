@@ -1,18 +1,26 @@
 <% @title = 'Show Board - Corkboard' %>
 
-<p id="notice"><%= notice %></p>
+<h1 class="display-4 text-primary-dark"><%= @board.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @board.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @board.description %>
-</p>
+<p><%= @board.description %></p>
 
 <% if @board.user == current_user %>
-<%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Delete', @board, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPinModal">
+    <%= fa_icon 'plus' %> Add Pin
+  </button>
+  <%= link_to edit_board_path(@board), class: 'btn btn-primary' do %>
+    <%= fa_icon 'edit' %> Edit
+  <% end %>
+  <%= link_to @board, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+    <%= fa_icon 'trash-o' %> Delete
+  <% end %>
+  <%= render 'modals' %>
 <% end %>
+
+<div class="row mt-3">
+  <% @board.pins.shuffle.each do |pin| %>
+  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+    <%= render 'pins/pin', pin: pin %>
+  </div>
+  <% end %>
+</div>

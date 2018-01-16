@@ -1,3 +1,15 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$("#addExistingButton").click ->
+  $("#modalOptions").hide 500
+  $("#modalExisting").show 500
+  return
+
+$("#addNewButton").click ->
+  $("#modalOptions").hide 500
+  $("#modalNew").show 500
+  return
+
+$("#modalClose").click ->
+  $("#modalExisting").hide 0
+  $("#modalNew").hide 0
+  $("#modalOptions").show 0
+  return

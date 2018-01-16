@@ -10,4 +10,5 @@ class Pin < ApplicationRecord
   validates_attachment_content_type :thumbnail, content_type: content_types
 
   belongs_to :user
+  has_and_belongs_to_many :boards
 end

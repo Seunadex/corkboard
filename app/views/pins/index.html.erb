@@ -4,6 +4,8 @@
 
 <div class="row">
   <% @pins.shuffle.each do |pin| %>
-  <%= render 'pin', pin: pin %>
+  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+    <%= render 'pin', pin: pin %>
+  </div>
   <% end %>
 </div>

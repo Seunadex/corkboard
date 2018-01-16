@@ -17,7 +17,13 @@ class PinsController < ApplicationController
   end
 
   def create
-    @pin = current_user.pins.build pin_params
+    @pin = current_user.pins.build
+    @pin.name = pin_params[:name]
+    @pin.description = pin_params[:description]
+    @pin.url = pin_params[:url]
+    @pin.boards = [Board.find(pin_params[:boards])] unless pin_params[:boards].empty? 
+    # puts pin_params[:boards]
+    @pin.thumbnail = pin_params[:thumbnail]
 
     if @pin.save
       redirect_to @pin, notice: 'Pin was successfully created.'
@@ -48,7 +54,7 @@ class PinsController < ApplicationController
   end
 
   def pin_params
-    params.require(:pin).permit :description, :thumbnail, :name, :url
+    params.require(:pin).permit :description, :thumbnail, :name, :url, :boards
   end
 
   def correct_user

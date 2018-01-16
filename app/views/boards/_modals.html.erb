@@ -1,0 +1,37 @@
+<div class="modal fade" id="addPinModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Pin to Board</h3>
+      </div>
+      <div class="modal-body" id="modalOptions">
+        <button class="btn btn-primary btn-block" type="button" id="addNewButton">
+          Create a new pin and add it to this board
+        </button>
+        <button class="btn btn-primary btn-block" type="button" id="addExistingButton">
+          Add an existing pin to this board
+        </button>
+      </div>
+      <div class="modal-body" id="modalNew" style="display: none;">
+        <div class="row">
+          <div class="col-12">
+            <%= render 'pins/form', pin: new_pin_in_board %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body" id="modalExisting" style="display: none;">
+        <%= form_tag action: 'add_pin' do %>
+          <%= hidden_field_tag 'board', @board.id %>
+          <% user_pins_not_in_board.each do |pin| %>
+          <%= render'pins/pin', pin: pin %>
+            <%= radio_button_tag 'pin', pin.id %>
+          <% end %>
+          <%= submit_tag('Send', type: 'submit', class: 'btn btn-default') %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="modalClose">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

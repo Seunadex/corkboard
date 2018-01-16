@@ -41,6 +41,24 @@ class BoardsController < ApplicationController
     redirect_to boards_url, notice: 'Board was successfully destroyed.'
   end
 
+  def add_pin
+    board = Board.find_by_id params[:board]
+    Pin.find_by_id(params[:pin])&.boards << board
+    redirect_to board
+  end
+
+  def new_pin_in_board
+    pin = current_user.pins.build
+    pin.boards = [@board]
+    return pin
+  end
+  helper_method :new_pin_in_board
+
+  def user_pins_not_in_board
+    pins = current_user.pins - @board.pins
+  end
+  helper_method :user_pins_not_in_board
+
   private
     def set_board
       @board = Board.find params[:id]

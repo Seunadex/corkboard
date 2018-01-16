@@ -9,7 +9,9 @@
   <hr/>
   <div class="row">
     <% @data[:pins].each do |pin| %>
-    <%= render 'pins/pin', pin: pin %>
+    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+      <%= render 'pins/pin', pin: pin %>
+    </div>
     <% end %>
   </div>
 </div>
